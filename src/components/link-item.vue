@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-<RouterLink class="bg-green-700 rounded-3xl text-white px-2 py-1"
+<RouterLink class="bg-green-700 rounded-xl text-white px-2 py-1"
 :to="{name:to}">
     <slot></slot>
 </RouterLink>

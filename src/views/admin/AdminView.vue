@@ -1,14 +1,17 @@
+
 <script setup>
 
+import navAdmin from '@/components/navAdmin.vue';
 
 </script>
 
 <template>
+    <navAdmin />
+
     <div>
-        <h1>hola desde admin</h1>
+        <RouterView/>
     </div>
 </template>
-
 
 
 <style lang="scss" scoped>

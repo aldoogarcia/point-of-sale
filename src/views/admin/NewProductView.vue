@@ -6,11 +6,76 @@ import Link from "@/components/link-item.vue";
 </script>
 
 <template>
-<Link to="products">
-    Productos
-</Link>
-<h1>
-    hello Products new
-</h1>
+    <div class="mx-10 mt-5">
+        <div class="">
+            <Link to="products">
+                Productos
+            </Link>
+        </div>
+        <div class="">
+            <h1 class="text-3xl font-black text-black">Nuevo <span class="text-green-700">producto</span> </h1>
+        </div>
+
+    </div>
+
+
+    <div class=" bg-gray-200 shadow-2xl mt-10 mx-10">
+        <div class=" mt-10  w-full 2xl:w-2/4 flex justify-center">
+
+            <FormKit
+                color="primary"
+                type="form"
+                submit-label="Guardar producto"
+            >
+
+            <FormKit
+                type="text"
+                label="Nombre"
+                name="name"
+                validation="required"
+                :validation-messages="{required:'El nombre es obligatorio'}"
+                placeholder="Ingresa el nombre del producto"
+            />
+            <FormKit
+                type="file"
+                label="Subir archivo "
+                name="file"
+                validation="required"
+                :validation-messages="{required:'Archivo es obligatorio'}"
+                accept=".jpg,.jpeg,.pn"
+                
+            />
+            <FormKit
+                type="select"
+                label="Categoria"
+                name="categori"
+                validation="required"
+                :validation-messages="{required:'Categoria es obligatoria'}"
+                :options="[1,2,3,4]"
+            />
+            <FormKit
+                type="number"
+                label="Precio"
+                name="price"
+                placeholder="Ingresa el precio"
+                validation="required"
+                :validation-messages="{required:'El precio es obligatoria'}"
+            />
+            <FormKit
+                type="number"
+                label="Disponible"
+                name="available"
+                placeholder="Producto Dispnible"
+                validation="required"
+                :validation-messages="{required:'El producto es obligatoria'}"
+                min="1"
+                max="1000"
+                
+            />
+            
+            </FormKit>
+        </div>
+
+    </div>
 
 </template>

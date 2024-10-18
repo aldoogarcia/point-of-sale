@@ -21,11 +21,11 @@ import Link from "../components/link-item.vue"
             Productos
         </RouterLink>
             <RouterLink :to="{name:'sale'}" class="px-3">
-            Sales
+            Ventas
         </RouterLink>
             <Link to="home">
                 
-            go to store
+            Ir a tienda
             </Link>
             
         </nav>

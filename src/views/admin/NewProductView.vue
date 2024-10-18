@@ -2,7 +2,9 @@
 <script setup>
 
 import Link from "@/components/link-item.vue";
+import useImage from "@/composables/useImage";
 
+const {url,fileChange,isImageUpload}= useImage()
 </script>
 
 <template>
@@ -26,6 +28,7 @@ import Link from "@/components/link-item.vue";
                 color="primary"
                 type="form"
                 submit-label="Guardar producto"
+                incomplete-message="Producto no guardado revisa los mensajes"
             >
 
             <FormKit
@@ -43,14 +46,19 @@ import Link from "@/components/link-item.vue";
                 validation="required"
                 :validation-messages="{required:'Archivo es obligatorio'}"
                 accept=".jpg,.jpeg,.pn"
+                @change="fileChange"
                 
             />
+            <div v-if="isImageUpload">
+                <img :src="url" alt="Imagen del producto" class="w-40 h-40 object-cover" />
+
+            </div>
             <FormKit
                 type="select"
                 label="Categoria"
                 name="categori"
                 validation="required"
-                :validation-messages="{required:'Categoria es obligatoria'}"
+                :validation-messages="{required:'Categoria es obligatorio'}"
                 :options="[1,2,3,4]"
             />
             <FormKit
@@ -59,7 +67,7 @@ import Link from "@/components/link-item.vue";
                 name="price"
                 placeholder="Ingresa el precio"
                 validation="required"
-                :validation-messages="{required:'El precio es obligatoria'}"
+                :validation-messages="{required:'El precio es obligatorio'}"
             />
             <FormKit
                 type="number"
@@ -67,7 +75,7 @@ import Link from "@/components/link-item.vue";
                 name="available"
                 placeholder="Producto Dispnible"
                 validation="required"
-                :validation-messages="{required:'El producto es obligatoria'}"
+                :validation-messages="{required:'El producto es obligatorio'}"
                 min="1"
                 max="1000"
                 
